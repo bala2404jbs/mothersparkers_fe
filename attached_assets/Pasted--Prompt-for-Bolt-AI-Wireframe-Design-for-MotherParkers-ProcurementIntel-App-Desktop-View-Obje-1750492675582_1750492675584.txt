@@ -1,0 +1,267 @@
+# Prompt for Bolt AI: Wireframe Design for MotherParkers_ProcurementIntel_App (Desktop View)
+
+**Objective:**  
+Create a set of wireframes for the desktop view (≥1200px) of the **MotherParkers_ProcurementIntel_App**, a Django-based AI-powered Procurement Intelligence Platform. The wireframes should cover the following pages: Dashboard (with current and summary views), Purchase History & Analysis, Price & Market Intelligence, Supplier Management, Procurement Insights & AI Recommendations, Contracts & Agreements, Geopolitical Risk Map, and Alerts & Notifications Center. The design must be intuitive, professional, and tailored to procurement managers and analytics users, supporting data-driven decision-making with clear visualizations and interactions.
+
+**General Design Guidelines:**  
+- **Target Platform:** Desktop view only (≥1200px).
+- **Visual Hierarchy:** Use consistent typography (e.g., sans-serif fonts like Roboto), clear labels, and a professional color palette (e.g., blue for primary actions, gray for backgrounds, green/red for positive/negative indicators).
+- **Interactions:** Support mouse-based interactions (click, hover, drag), with clear feedback (e.g., hover effects on buttons, tooltips for data points).
+- **Accessibility:** Ensure keyboard navigation support, high-contrast text, and compatibility with screen readers.
+- **Branding:** Include a placeholder Mother Parkers logo and subtle coffee/tea-themed imagery for visual appeal.
+- **Performance:** Design for fast rendering (target time-to-first-render < 3 seconds).
+
+**Technical Notes:**  
+- **Frontend Framework:** Assume React with Tailwind CSS for responsive design (though only desktop view is required).
+- **Security:** Reflect role-based access control (RBAC) in UI (e.g., procurement managers have full access, analytics users have view-only for some sections).
+- **Data Integration:** Assume API-driven data (e.g., commodity prices, supplier metrics) and real-time updates via WebSockets where applicable.
+
+## 1. Dashboard (Home)
+**Purpose:** Provide an overview of key procurement metrics, including current and summary views for spend, supplier performance, alerts, commodities, and risks.
+
+**Desktop View (≥1200px):**  
+```
+┌──────────────────────────────────────────────────────────────┐
+│ Header: "Mother Parkers Procurement Intelligence" (Logo Left)│
+│ Navigation: [Home, Purchases, Prices, Suppliers, Insights,   │
+│              Contracts, Risk Map, Alerts] + Profile (Logout) │
+├──────────────────────────────────────────────────────────────┤
+│ Quick Stats Panel (Horizontal, Full Width)                  │
+│ ┌────────────┐ ┌────────────┐ ┌────────────┐ ┌────────────┐ │
+│ │ Spend      │ │ Suppliers  │ │ Alerts     │ │ Commodities│ │
+│ │ $1.2M (Curr)│ │ 50 Active │ │ 5 Active  │ │ 10 Tracked│ │
+│ │ $10M (Sum) │ │ 4 At Risk │ │ 2 High    │ │ 3 Volatile│ │
+│ └────────────┘ └────────────┘ └────────────┘ └────────────┘ │
+├──────────────────────────────────────────────────────────────┤
+│ Main Content Area (Grid Layout, 2x2)                        │
+│ ┌─────────────────────┐ ┌─────────────────────┐           │
+│ │ Spend Summary       │ │ Supplier Scorecards │           │
+│ │ [Bar Chart: Current]│ │ [Cards: Metrics, Scores] │     │
+│ │ [Pie Chart: Summary]│ │                      │           │
+│ └─────────────────────┘ └─────────────────────┘           │
+│ ┌─────────────────────┐ ┌─────────────────────┐           │
+│ │ Alerts Overview     │ │ Top Commodities     │           │
+│ │ [List: Type, Status]│ │ [Table: Spend, Trend]│         │
+│ └─────────────────────┘ └─────────────────────┘           │
+│ ┌─────────────────────┐                                 │
+│ │ Risk Overview       │                                 │
+│ │ [Gauge: Geo, Supply]│                                 │
+│ └─────────────────────┘                                 │
+└──────────────────────────────────────────────────────────────┤
+```
+- **Components:** Navigation bar, quick stats panel (four clickable cards showing current and summary metrics), grid with five cards (spend summary, supplier scorecards, alerts, top commodities, risk overview).
+- **Interactions:** Click stats to filter main content; hover charts for data points; click alert for details; toggle between current/summary views in spend chart.
+- **Design Notes:** Use blue for navigation, green/red for positive/negative metrics, vibrant colors for charts. Ensure cards are collapsible for space efficiency.
+- **Annotations:** Note RBAC (managers see all, analysts see limited data), real-time updates for alerts, and API-driven data for charts.
+
+## 2. Purchase History & Analysis
+**Purpose:** Display past procurement data with filtering, price trends, and export options.
+
+**Desktop View (≥1200px):**  
+```
+┌──────────────────────────────────────────────────────────────┐
+│ Header: "Purchase History & Analysis" + Back Button         │
+├──────────────────────────────────────────────────────────────┤
+│ Main Content (Two Columns)                                 │
+│ ┌─────────────────────────────────┐ ┌──────────────────────┐ │
+│ │ Filters                        │ │ Price Trends Chart   │ │
+│ │ Supplier: [Dropdown]          │ │ [Line Chart: Over Time]│
+│ │ Date Range: [Picker]          │ │                      │
+│ │ Type: [Contract, Spot]        │ │                      │
+│ └─────────────────────────────────┘ └──────────────────────┘ │
+│ ┌─────────────────────────────────┐                        │
+│ │ Procurement Table              │                        │
+│ │ [PO Number, Supplier, Amount, Date, Type] │            │
+│ └─────────────────────────────────┘                        │
+│ ┌─────────────────────────────────┐                        │
+│ │ Volume vs Cost Chart           │                        │
+│ │ [Scatter Plot]                │                        │
+│ └─────────────────────────────────┘                        │
+│ ┌─────────────────────────────────┐                        │
+│ │ Export: [CSV, PDF] Buttons    │                        │
+│ └─────────────────────────────────┘                        │
+└──────────────────────────────────────────────────────────────┤
+```
+- **Components:** Filters (dropdown, date picker, checkboxes), line chart, sortable table, scatter plot, export buttons.
+- **Interactions:** Select filters to update chart/table; click table row for PO details; hover scatter plot for data points; click export to download data.
+- **Design Notes:** Use blue for buttons, ensure table is scrollable, highlight contract vs. spot buys with color coding.
+- **Annotations:** Note API-driven data, export functionality, and filter persistence.
+
+## 3. Price & Market Intelligence
+**Purpose:** Track commodity price trends, ICE Futures data, FX trends, market news, and AI-predicted prices.
+
+**Desktop View (≥1200px):**  
+```
+┌──────────────────────────────────────────────────────────────┐
+│ Header: "Price & Market Intelligence" + Back Button         │
+├──────────────────────────────────────────────────────────────┤
+│ Main Content (Two Columns)                                 │
+│ ┌─────────────────────────────────┐ ┌──────────────────────┐ │
+│ │ Filters                        │ │ Price Trends Chart   │ │
+│ │ Commodity: [Dropdown: Coffee, Sugar, etc.] │ │ [Line Chart: Current, Predicted]│
+│ │ Date Range: [Picker]          │ │                      │
+│ │ Source: [ICE, API]            │ │                      │
+│ └─────────────────────────────────┘ └──────────────────────┘ │
+│ ┌─────────────────────────────────┐                        │
+│ │ FX Trends Chart                │                        │
+│ │ [Line Chart: Currency Rates]  │                        │
+│ └─────────────────────────────────┘                        │
+│ ┌─────────────────────────────────┐                        │
+│ │ Market News Feed               │                        │
+│ │ [List: Headline, Source, Date]│                        │
+│ └─────────────────────────────────┘                        │
+└──────────────────────────────────────────────────────────────┤
+```
+- **Components:** Filters (dropdown, picker, checkboxes), price trends chart, FX chart, news feed list.
+- **Interactions:** Select commodity to update charts; hover chart for data points; click news headline for full article (modal or new page).
+- **Design Notes:** Use distinct colors for current vs. predicted prices, ensure news feed is scrollable.
+- **Annotations:** Note ICE Futures API integration, AI-driven predictions, and real-time news updates.
+
+## 4. Supplier Management
+**Purpose:** Manage supplier profiles, performance metrics, risk alerts, and comparisons.
+
+**Desktop View (≥1200px):**  
+```
+┌──────────────────────────────────────────────────────────────┐
+│ Header: "Supplier Management" + Back Button                 │
+├──────────────────────────────────────────────────────────────┤
+│ Main Content (Two Columns)                                 │
+│ ┌─────────────────────────────────┐ ┌──────────────────────┐ │
+│ │ Supplier Filter                │ │ Supplier Profile     │ │
+│ │ Supplier: [Dropdown]          │ │ [Name, Location, Products] │
+│ │ Compare: [Multi-select]       │ │ [Scorecard: Delivery, Quality] │
+│ └─────────────────────────────────┘ └──────────────────────┘ │
+│ ┌─────────────────────────────────┐                        │
+│ │ Performance Metrics Table      │                        │
+│ │ [Metric, Score, Date, Notes]  │                        │
+│ └─────────────────────────────────┘                        │
+│ ┌─────────────────────────────────┐                        │
+│ │ Risk Alerts [List: Type, Date]│                        │
+│ │ Rating: [Stars + Comment Box] │                        │
+│ └─────────────────────────────────┘                        │
+└──────────────────────────────────────────────────────────────┤
+```
+- **Components:** Supplier dropdown, multi-select for comparison, profile card, metrics table, alerts list, rating system.
+- **Interactions:** Select supplier to update profile; select multiple for comparison table; click alert for details; submit rating with comment.
+- **Design Notes:** Use red for risk alerts, star-based rating system, highlight key metrics.
+- **Annotations:** Note AI-driven risk alerts and ERP/QMS data integration.
+
+## 5. Procurement Insights & AI Recommendations
+**Purpose:** Provide AI-driven cost-saving suggestions, supplier recommendations, and risk flags.
+
+**Desktop View (≥1200px):**  
+```
+┌──────────────────────────────────────────────────────────────┐
+│ Header: "Procurement Insights & AI Recommendations" + Back  │
+├──────────────────────────────────────────────────────────────┤
+│ Main Content (Two Columns)                                 │
+│ ┌─────────────────────────────────┐ ┌──────────────────────┐ │
+│ │ Filters                        │ │ Cost-Saving Chart    │ │
+│ │ Category: [Dropdown]          │ │ [Bar Chart: Savings] │
+│ │ Supplier: [Dropdown]          │ │                      │
+│ └─────────────────────────────────┘ └──────────────────────┘ │
+│ ┌─────────────────────────────────┐                        │
+│ │ Recommendations List           │                        │
+│ │ [Type: Cost, Supplier, Volume]│                        │
+│ │ [Details, Action Button]      │                        │
+│ └─────────────────────────────────┘                        │
+│ ┌─────────────────────────────────┐                        │
+│ │ Risk Flags [List: Order, Risk]│                        │
+│ └─────────────────────────────────┘                        │
+└──────────────────────────────────────────────────────────────┤
+```
+- **Components:** Filters, bar chart, recommendations list, risk flags list.
+- **Interactions:** Select filters to update chart/list; click recommendation for action (e.g., initiate order); click risk for details.
+- **Design Notes:** Use green for savings, red for risks, ensure list is scrollable.
+- **Annotations:** Note AI-driven recommendations and real-time data updates.
+
+## 6. Contracts & Agreements
+**Purpose:** Manage contract repository, track expirations, and set renewal alerts.
+
+**Desktop View (≥1200px):**  
+```
+┌──────────────────────────────────────────────────────────────┐
+│ Header: "Contracts & Agreements" + Back Button              │
+├──────────────────────────────────────────────────────────────┤
+│ Main Content (Two Columns)                                 │
+│ ┌─────────────────────────────────┐ ┌──────────────────────┐ │
+│ │ Filters                        │ │ Contract Details     │ │
+│ │ Supplier: [Dropdown]          │ │ [Name, Terms, Pricing]│
+│ │ Status: [Active, Expiring]    │ │ [PDF Viewer]         │
+│ └─────────────────────────────────┘ └──────────────────────┘ │
+│ ┌─────────────────────────────────┐                        │
+│ │ Contract Table                │                        │
+│ │ [Supplier, Expiry, Status]    │                        │
+│ └─────────────────────────────────┘                        │
+│ ┌─────────────────────────────────┐                        │
+│ │ Alerts [List: Renewal, Deadline]│                      │
+│ └─────────────────────────────────┘                        │
+└──────────────────────────────────────────────────────────────┤
+```
+- **Components:** Filters, contract details with PDF viewer, table, alerts list.
+- **Interactions:** Select contract to view details/PDF; click alert for action (e.g., set reminder).
+- **Design Notes:** Use yellow for expiring contracts, ensure PDF viewer is embedded.
+- **Annotations:** Note file storage integration and automated alert triggers.
+
+## 7. Geopolitical Risk Map
+**Purpose:** Visualize procurement regions with risk overlays for weather, strikes, and political issues.
+
+**Desktop View (≥1200px):**  
+```
+┌──────────────────────────────────────────────────────────────┐
+│ Header: "Geopolitical Risk Map" + Back Button               │
+├──────────────────────────────────────────────────────────────┤
+│ Main Content (Two Columns)                                 │
+│ ┌─────────────────────────────────┐ ┌──────────────────────┐ │
+│ │ Filters                        │ │ Interactive Map      │ │
+│ │ Region: [Dropdown]            │ │ [World Map with Pins]│
+│ │ Risk Type: [Weather, Strikes, Political] │ │           │
+│ └─────────────────────────────────┘ └──────────────────────┘ │
+│ ┌─────────────────────────────────┐                        │
+│ │ Region Stats                   │                        │
+│ │ [Supplier Count, Risk Level, Details] │               │
+│ └─────────────────────────────────┘                        │
+└──────────────────────────────────────────────────────────────┤
+```
+- **Components:** Filters, interactive map with clickable pins, stats panel.
+- **Interactions:** Select filters to update map; click pin for stats; zoom map with mouse.
+- **Design Notes:** Use color-coded pins (red for high risk), ensure map is responsive.
+- **Annotations:** Note API integration (e.g., weather, news) and real-time updates.
+
+## 8. Alerts & Notifications Center
+**Purpose:** Display and manage alerts for shipment delays, price spikes, and contract expirations.
+
+**Desktop View (≥1200px):**  
+```
+┌──────────────────────────────────────────────────────────────┐
+│ Header: "Alerts & Notifications Center" + Back Button       │
+├──────────────────────────────────────────────────────────────┤
+│ Main Content (Two Columns)                                 │
+│ ┌─────────────────────────────────┐ ┌──────────────────────┐ │
+│ │ Filters                        │ │ Alerts List          │ │
+│ │ Type: [Dropdown: Delay, Price, Contract] │ │ [Type, Status, Date] │
+│ │ Priority: [High, Medium, Low]  │ │                      │
+│ └─────────────────────────────────┘ └──────────────────────┘ │
+│ ┌─────────────────────────────────┐                        │
+│ │ Alert Details (Selected Alert) │                        │
+│ │ [Description, Action Button]  │                        │
+│ └─────────────────────────────────┘                        │
+│ ┌─────────────────────────────────┐                        │
+│ │ Threshold Settings [Form]      │                        │
+│ │ [Type, Threshold Value, Notify]│                       │
+│ └─────────────────────────────────┘                        │
+└──────────────────────────────────────────────────────────────┤
+```
+- **Components:** Filters, alerts list, details panel, threshold settings form.
+- **Interactions:** Select alert to view details; submit form to set custom thresholds; click action button to resolve alert.
+- **Design Notes:** Use red for high-priority alerts, ensure list is scrollable.
+- **Annotations:** Note real-time WebSocket updates and customizable notification settings.
+
+**Additional Notes for Bolt AI:**  
+- **Consistency:** Maintain a uniform design language across all screens (e.g., blue buttons, consistent icons, sans-serif fonts).
+- **Annotations:** Include notes for interactions (e.g., “Click to view details”), technical requirements (e.g., “API-driven data”), and real-time features.
+- **Deliverable:** Provide wireframes in a digital format (PDF or interactive prototype) for desktop view only.
+- **Branding:** Incorporate placeholder Mother Parkers branding (e.g., logo, coffee/tea imagery).
+
+**Call to Action:**  
+Please generate a comprehensive set of wireframes for the desktop view of the MotherParkers_ProcurementIntel_App based on this prompt. Ensure each page is detailed, intuitive, and aligned with the platform’s requirements for procurement intelligence. I trust Bolt AI to deliver a high-quality proof-of-concept design that enhances the user experience for Mother Parkers’ procurement team.

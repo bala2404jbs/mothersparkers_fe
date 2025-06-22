@@ -1,0 +1,360 @@
+/* Bootstrap CSS */
+@import 'bootstrap/dist/css/bootstrap.min.css';
+
+/* Ant Design CSS */
+@import 'antd/dist/reset.css';
+
+/* Custom Mother Parkers Brand Styles */
+:root {
+  --mp-blue: #1e3a8a;
+  --mp-blue-light: #3b82f6;
+  --mp-coffee: #8b4513;
+  --mp-chocolate: #d2691e;
+  --mp-success: #10b981;
+  --mp-warning: #f59e0b;
+  --mp-error: #ef4444;
+  --mp-gray: #6b7280;
+  --mp-light-gray: #f9fafb;
+}
+
+/* Custom Bootstrap Theme Override */
+.navbar-brand {
+  font-weight: 700;
+  color: var(--mp-blue) !important;
+}
+
+.btn-primary {
+  background-color: var(--mp-blue);
+  border-color: var(--mp-blue);
+}
+
+.btn-primary:hover {
+  background-color: var(--mp-blue-light);
+  border-color: var(--mp-blue-light);
+}
+
+.card {
+  border: 1px solid #e5e7eb;
+  border-radius: 0.75rem;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
+  transition: all 0.2s ease-in-out;
+}
+
+.card:hover {
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  transform: translateY(-1px);
+}
+
+/* Ant Design Theme Customization */
+.ant-btn-primary {
+  background-color: var(--mp-blue);
+  border-color: var(--mp-blue);
+}
+
+.ant-btn-primary:hover {
+  background-color: var(--mp-blue-light) !important;
+  border-color: var(--mp-blue-light) !important;
+}
+
+.ant-card {
+  border-radius: 0.75rem;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
+  transition: all 0.2s ease-in-out;
+}
+
+.ant-card:hover {
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  transform: translateY(-1px);
+}
+
+.ant-badge-status-success {
+  background-color: var(--mp-success);
+}
+
+.ant-badge-status-warning {
+  background-color: var(--mp-warning);
+}
+
+.ant-badge-status-error {
+  background-color: var(--mp-error);
+}
+
+/* Mother Parkers specific components */
+  .mp-gradient {
+  background: linear-gradient(135deg, var(--mp-blue) 0%, var(--mp-blue-light) 100%);
+}
+
+/* Coffee background styling moved to inline styles in login.tsx */
+
+.stat-card {
+  background: white;
+  padding: 1.5rem;
+  border-radius: 0.75rem;
+  border: 1px solid #e5e7eb;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
+  transition: all 0.2s ease-in-out;
+  cursor: pointer;
+}
+
+.stat-card:hover {
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  transform: translateY(-2px);
+}
+
+.stat-icon {
+  width: 3rem;
+  height: 3rem;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.stat-icon-blue {
+  background-color: rgba(59, 130, 246, 0.1);
+  color: var(--mp-blue);
+}
+
+.stat-icon-green {
+  background-color: rgba(16, 185, 129, 0.1);
+  color: var(--mp-success);
+}
+
+.stat-icon-red {
+  background-color: rgba(239, 68, 68, 0.1);
+  color: var(--mp-error);
+}
+
+.stat-icon-yellow {
+  background-color: rgba(245, 158, 11, 0.1);
+  color: var(--mp-warning);
+  }
+  
+  .performance-score-high {
+  color: var(--mp-success);
+  background-color: rgba(16, 185, 129, 0.1);
+  border: 1px solid rgba(16, 185, 129, 0.3);
+  }
+  
+  .performance-score-medium {
+  color: var(--mp-blue);
+  background-color: rgba(59, 130, 246, 0.1);
+  border: 1px solid rgba(59, 130, 246, 0.3);
+  }
+  
+  .performance-score-low {
+  color: var(--mp-warning);
+  background-color: rgba(245, 158, 11, 0.1);
+  border: 1px solid rgba(245, 158, 11, 0.3);
+}
+
+.risk-badge-low {
+  background-color: rgba(16, 185, 129, 0.1);
+  color: var(--mp-success);
+  border: 1px solid rgba(16, 185, 129, 0.3);
+}
+
+.risk-badge-medium {
+  background-color: rgba(245, 158, 11, 0.1);
+  color: var(--mp-warning);
+  border: 1px solid rgba(245, 158, 11, 0.3);
+}
+
+.risk-badge-high {
+  background-color: rgba(239, 68, 68, 0.1);
+  color: var(--mp-error);
+  border: 1px solid rgba(239, 68, 68, 0.3);
+}
+
+.alert-high {
+  background-color: rgba(239, 68, 68, 0.1);
+  border-left: 4px solid var(--mp-error);
+  color: #7f1d1d;
+}
+
+.alert-medium {
+  background-color: rgba(245, 158, 11, 0.1);
+  border-left: 4px solid var(--mp-warning);
+  color: #92400e;
+}
+
+.alert-low {
+  background-color: rgba(59, 130, 246, 0.1);
+  border-left: 4px solid var(--mp-blue);
+  color: #1e3a8a;
+  }
+  
+  .supplier-card {
+  padding: 1rem;
+  border: 1px solid #e5e7eb;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+
+.supplier-card:hover {
+  border-color: var(--mp-blue);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  }
+  
+  .supplier-card-active {
+  border-color: var(--mp-blue);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  background-color: rgba(59, 130, 246, 0.05);
+}
+
+/* Animation utilities */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.fade-in {
+  animation: fadeIn 0.3s ease-out;
+}
+
+/* Ensure proper alignment for all content */
+.ant-row {
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+}
+
+.ant-col {
+  padding-left: 12px !important;
+  padding-right: 12px !important;
+}
+
+/* Ensure content is scrollable and properly aligned */
+.container-fluid {
+  min-height: 100%;
+  padding-bottom: 2rem;
+  width: 100%;
+  max-width: none;
+}
+
+/* Responsive utilities */
+@media (max-width: 768px) {
+  .stat-card {
+    padding: 1rem;
+  }
+  
+  .card {
+    margin-bottom: 1rem;
+  }
+  
+  /* Mobile layout adjustments */
+  .ant-layout-content {
+    margin-left: 0 !important;
+    height: 100% !important;
+  }
+  
+  .container-fluid {
+    padding: 16px 8px !important;
+  }
+  
+  .mp-gradient {
+    transform: translateX(-100%);
+    transition: transform 0.3s ease;
+  }
+  
+  .mp-gradient.mobile-open {
+    transform: translateX(0);
+  }
+}
+
+/* Custom scrollbar for better UX */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--mp-gray);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--mp-blue);
+}
+
+/* Fixed layout styles */
+body {
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+/* Header overflow fix */
+.navbar {
+  overflow: hidden !important;
+}
+
+.navbar .container-fluid {
+  overflow: hidden !important;
+}
+
+.ant-layout {
+  height: 100vh;
+  overflow: hidden;
+}
+
+.ant-layout-content {
+  position: relative;
+  height: 100%;
+  overflow-y: auto !important;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+}
+
+/* Custom scrollbar for content area */
+.ant-layout-content::-webkit-scrollbar {
+  width: 8px;
+}
+
+.ant-layout-content::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 4px;
+}
+
+.ant-layout-content::-webkit-scrollbar-thumb {
+  background: var(--mp-blue);
+  border-radius: 4px;
+}
+
+.ant-layout-content::-webkit-scrollbar-thumb:hover {
+  background: var(--mp-blue-dark);
+}
+
+/* Ensure sidebar scrolls properly */
+.mp-gradient {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255, 255, 255, 0.3) transparent;
+}
+
+.mp-gradient::-webkit-scrollbar {
+  width: 6px;
+}
+
+.mp-gradient::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.mp-gradient::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 3px;
+}
+
+.mp-gradient::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.5);
+}
+
+/* Print styles */
+@media print {
+  .no-print {
+    display: none !important;
+  }
+}
