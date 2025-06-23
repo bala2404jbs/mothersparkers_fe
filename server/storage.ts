@@ -68,7 +68,7 @@ export class MemStorage implements IStorage {
     // Create default user
     this.createUser({
       username: "admin",
-      password: "procurement2024",
+      password: "procurement2025",
       role: "procurement_manager"
     });
 

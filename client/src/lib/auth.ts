@@ -11,7 +11,7 @@ export interface LoginResponse {
 
 export const STATIC_CREDENTIALS = {
   username: "admin",
-  password: "procurement2024"
+  password: "procurement2025"
 } as const;
 
 export const login = async (username: string, password: string): Promise<LoginResponse> => {
