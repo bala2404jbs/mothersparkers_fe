@@ -42,11 +42,11 @@ export default function Purchases() {
   const [purchaseTypes, setPurchaseTypes] = useState(["contract", "spot"]);
 
   const { data: suppliers } = useQuery({
-    queryKey: ["/api/suppliers"],
+    queryKey: ["suppliers"],
   });
 
   const { data: purchaseOrders } = useQuery({
-    queryKey: ["/api/purchase-orders"],
+    queryKey: ["purchase-orders"],
   });
 
   const handleExport = (format) => {

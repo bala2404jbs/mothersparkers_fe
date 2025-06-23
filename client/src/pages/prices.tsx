@@ -35,7 +35,7 @@ export default function Prices() {
   const [dataSources, setDataSources] = useState(["ice", "api"]);
 
   const { data: commodities } = useQuery({
-    queryKey: ["/api/commodities"],
+    queryKey: ["commodities"],
   });
 
   const marketStats = [

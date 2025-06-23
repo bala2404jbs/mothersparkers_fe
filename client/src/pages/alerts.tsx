@@ -3,7 +3,7 @@ import { useQuery } from "@tanstack/react-query";
 
 // Fetch summaries directly from the procurement summaries API
 async function fetchSummaries() {
-  const response = await fetch('https://h6q97gt0-8000.inc1.devtunnels.ms/api/procurement/procurement-news-analysis/');
+  const response = await fetch('https://localhost:8000/api/procurement/procurement-news-analysis/');
   let data;
   try {
     data = await response.json();
@@ -158,7 +158,7 @@ export default function Alerts() {
   const [showResolved, setShowResolved] = useState(false);
 
   const { data: alerts } = useQuery({
-    queryKey: ["/api/alerts"],
+    queryKey: ["alerts"],
   });
 
   const getPriorityIcon = (priority: string) => {

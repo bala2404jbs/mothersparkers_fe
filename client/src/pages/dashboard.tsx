@@ -111,7 +111,7 @@ const mockDetailedData: DetailedArticle[] = [
 // API Functions with fallback
 const fetchProcurementSummaries = async (): Promise<SummariesResponse> => {
   try {
-    const response = await fetch('https://h6q97gt0-8000.inc1.devtunnels.ms/api/procurement/procurement-news-analysis/');
+    const response = await fetch('https://localhost:8000/api/procurement/procurement-news-analysis/');
     if (!response.ok) {
       throw new Error(`HTTP error! status: ${response.status}`);
     }
@@ -131,7 +131,7 @@ const fetchProcurementSummaries = async (): Promise<SummariesResponse> => {
 
 const fetchCommodityNews = async (uuids: string[]): Promise<DetailedArticle[]> => {
   try {
-    const response = await fetch('https://h6q97gt0-8000.inc1.devtunnels.ms/api/procurement/commodity-news/', {
+    const response = await fetch('https://localhost:8000/api/procurement/commodity-news/', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

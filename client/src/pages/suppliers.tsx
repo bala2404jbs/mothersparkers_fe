@@ -32,7 +32,7 @@ export default function Suppliers() {
   const [selectedSupplierId, setSelectedSupplierId] = useState<number | null>(null);
 
   const { data: suppliersRaw } = useQuery({
-    queryKey: ["/api/suppliers"],
+    queryKey: ["suppliers"],
   });
   const suppliers: any[] = Array.isArray(suppliersRaw) ? suppliersRaw : [];
 

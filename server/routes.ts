@@ -5,7 +5,7 @@ import { insertUserSchema, insertSupplierSchema, insertPurchaseOrderSchema, inse
 
 export async function registerRoutes(app: Express): Promise<Server> {
   // Authentication routes
-  app.post("/api/auth/login", async (req, res) => {
+  app.post("/auth/login", async (req, res) => {
     try {
       const { username, password } = req.body;
       
@@ -33,7 +33,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
   });
 
   // Supplier routes
-  app.get("/api/suppliers", async (req, res) => {
+  app.get("/suppliers", async (req, res) => {
     try {
       const suppliers = await storage.getSuppliers();
       res.json(suppliers);
@@ -42,7 +42,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
     }
   });
 
-  app.get("/api/suppliers/:id", async (req, res) => {
+  app.get("/suppliers/:id", async (req, res) => {
     try {
       const id = parseInt(req.params.id);
       const supplier = await storage.getSupplier(id);
@@ -57,7 +57,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
     }
   });
 
-  app.post("/api/suppliers", async (req, res) => {
+  app.post("/suppliers", async (req, res) => {
     try {
       const validatedData = insertSupplierSchema.parse(req.body);
       const supplier = await storage.createSupplier(validatedData);
@@ -68,7 +68,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
   });
 
   // Purchase Order routes
-  app.get("/api/purchase-orders", async (req, res) => {
+  app.get("/purchase-orders", async (req, res) => {
     try {
       const orders = await storage.getPurchaseOrders();
       res.json(orders);
@@ -77,7 +77,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
     }
   });
 
-  app.post("/api/purchase-orders", async (req, res) => {
+  app.post("/purchase-orders", async (req, res) => {
     try {
       const validatedData = insertPurchaseOrderSchema.parse(req.body);
       const order = await storage.createPurchaseOrder(validatedData);
@@ -88,7 +88,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
   });
 
   // Commodity routes
-  app.get("/api/commodities", async (req, res) => {
+  app.get("/commodities", async (req, res) => {
     try {
       const commodities = await storage.getCommodities();
       res.json(commodities);
@@ -98,7 +98,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
   });
 
   // Alert routes
-  app.get("/api/alerts", async (req, res) => {
+  app.get("/alerts", async (req, res) => {
     try {
       const alerts = await storage.getAlerts();
       res.json(alerts);
@@ -107,7 +107,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
     }
   });
 
-  app.post("/api/alerts", async (req, res) => {
+  app.post("/alerts", async (req, res) => {
     try {
       const validatedData = insertAlertSchema.parse(req.body);
       const alert = await storage.createAlert(validatedData);
@@ -117,7 +117,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
     }
   });
 
-  app.patch("/api/alerts/:id", async (req, res) => {
+  app.patch("/alerts/:id", async (req, res) => {
     try {
       const id = parseInt(req.params.id);
       const alert = await storage.updateAlert(id, req.body);
@@ -133,7 +133,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
   });
 
   // Dashboard summary route
-  app.get("/api/dashboard/summary", async (req, res) => {
+  app.get("/dashboard/summary", async (req, res) => {
     try {
       const suppliers = await storage.getSuppliers();
       const orders = await storage.getPurchaseOrders();
@@ -164,9 +164,9 @@ export async function registerRoutes(app: Express): Promise<Server> {
   });
 
   // Procurement Intelligence API proxy routes
-  app.get("/api/procurement/summaries", async (req, res) => {
+  app.get("/procurement/summaries", async (req, res) => {
     try {
-      const response = await fetch('https://h6q97gt0-8000.inc1.devtunnels.ms/api/procurement/procurement-news-analysis/');
+      const response = await fetch('https://h6q97gt0-8000.inc1.devtunnels.ms/procurement/procurement-news-analysis/');
       if (!response.ok) {
         throw new Error(`HTTP error! status: ${response.status}`);
       }
@@ -178,10 +178,10 @@ export async function registerRoutes(app: Express): Promise<Server> {
     }
   });
 
-  app.post("/api/procurement/details", async (req, res) => {
+  app.post("/procurement/details", async (req, res) => {
     try {
       const { uuids } = req.body;
-      const response = await fetch('https://h6q97gt0-8000.inc1.devtunnels.ms/api/procurement/commodity-news/', {
+      const response = await fetch('https://h6q97gt0-8000.inc1.devtunnels.ms/procurement/commodity-news/', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

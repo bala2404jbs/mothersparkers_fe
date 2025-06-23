@@ -15,7 +15,7 @@ export const STATIC_CREDENTIALS = {
 } as const;
 
 export const login = async (username: string, password: string): Promise<LoginResponse> => {
-  const response = await fetch("/api/auth/login", {
+  const response = await fetch("/auth/login", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
